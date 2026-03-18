@@ -1,0 +1,99 @@
+/*
+ * Global Styles
+ * ─────────────────────────────────────────────────────────────────
+ * 1. Tailwind base, components, utilities layers
+ * 2. Custom base overrides (font, body background, scrollbar)
+ * ─────────────────────────────────────────────────────────────────
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base layer overrides ── */
+@layer base {
+  html {
+    font-size: 14px;
+  }
+
+  body {
+    @apply font-sans bg-slate-100 text-slate-900 antialiased;
+    line-height: 1.5;
+  }
+
+  /* Custom scrollbar — thin and subtle */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 rounded-full;
+  }
+}
+
+/* ── Reusable component classes ── */
+@layer components {
+
+  /* Card — white box with border and subtle shadow */
+  .card {
+    @apply bg-white border border-slate-200 rounded-xl shadow-card;
+  }
+
+  /* Badge base — used for status labels */
+  .badge {
+    @apply inline-flex items-center gap-1 text-xs font-semibold px-2 py-0.5 rounded-full;
+  }
+
+  /* Form input — consistent across all forms */
+  .form-input {
+    @apply w-full font-sans text-sm px-3 py-2
+           border border-slate-200 rounded-md bg-white text-slate-800
+           outline-none transition-all duration-150
+           focus:border-indigo-500 focus:ring-2 focus:ring-indigo-50;
+  }
+
+  /* Primary button */
+  .btn-primary {
+    @apply inline-flex items-center gap-1.5 font-sans text-sm font-semibold
+           px-4 py-2 bg-indigo-600 text-white rounded-md border-none
+           cursor-pointer transition-all duration-150
+           hover:bg-indigo-700 hover:shadow-card-md hover:-translate-y-px;
+  }
+
+  /* Secondary button */
+  .btn-secondary {
+    @apply inline-flex items-center gap-1.5 font-sans text-sm font-semibold
+           px-4 py-2 bg-white text-slate-700 rounded-md
+           border border-slate-200 cursor-pointer transition-all duration-150
+           hover:bg-slate-50 hover:border-slate-300;
+  }
+
+  /* Ghost button */
+  .btn-ghost {
+    @apply inline-flex items-center gap-1.5 font-sans text-sm font-semibold
+           px-3 py-1.5 bg-transparent text-slate-500 rounded-md
+           border border-transparent cursor-pointer transition-all duration-150
+           hover:bg-slate-100 hover:text-slate-700;
+  }
+}
+
+/* ── Page entry animation ── */
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+.page-enter {
+  animation: pageIn 0.2s ease both;
+}
+
+/* ── Pulse animation for the live status dot ── */
+@keyframes livePulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+.live-pulse {
+  animation: livePulse 2s infinite;
+}
