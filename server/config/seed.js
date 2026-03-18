@@ -1,26 +1,11 @@
-/**
- * Database Seeder
- * ─────────────────────────────────────────────────────────────────
- * Populates MongoDB with demo data so the app works immediately
- * after setup without needing to manually create anything.
- *
- * Run with:  node server/config/seed.js
- *
- * Creates:
- *   - 1 Admin user      (admin@company.com / admin123)
- *   - 1 Employee user   (employee@company.com / emp123)
- *   - 7 Workflows       (including templates)
- *   - 4 Rules           (including templates)
- *   - 12 Audit log entries
- * ─────────────────────────────────────────────────────────────────
- */
-
 const mongoose = require('mongoose');
 const dotenv   = require('dotenv');
 const bcrypt   = require('bcryptjs');
+const MONGO_URI = 'mongodb://127.0.0.1:27017/hr_workflow';
 
 // Load environment variables
 dotenv.config({ path: require('path').join(__dirname, '../.env') });
+process.env.MONGO_URI = 'mongodb+srv://admin:Admin%40123@cluster0.3sqxfko.mongodb.net/hr_workflow?retryWrites=true&w=majority&appName=Cluster0';
 
 // Import models
 const User     = require('../models/User');
@@ -31,7 +16,7 @@ const AuditLog = require('../models/AuditLog');
 const seed = async () => {
   try {
     // Connect to MongoDB
-    await mongoose.connect(process.env.MONGO_URI);
+    await mongoose.connect(MONGO_URI, {family: 4});
     console.log('✅ Connected to MongoDB');
 
     // Clear existing data
