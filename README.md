@@ -1,10 +1,6 @@
-
-
+Demo run video:
+CLICK THIS:
 https://github.com/user-attachments/assets/e0c5bcf4-f5fb-49f1-ada0-75925a3cf210
-
-
-
-https://github.com/user-attachments/assets/60174675-1566-4e11-a995-134ecca3ac52
 
 # HR Workflow Management Platform
 
@@ -155,7 +151,5 @@ This starts both servers at the same time:
 - **Audit Logs** — Admin-only, filterable, fetched from MongoDB
 - **Settings** — General, Notifications, Integrations, Security.
 
-Demo run video:
-CLICK THIS:
-https://github.com/user-attachments/assets/57d2c03c-f74d-4a86-b4c0-e5c61a94eda3
+
 
