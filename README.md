@@ -145,19 +145,5 @@ This starts both servers at the same time:
 - **Rule Builder** — Custom rules or pick from 5 rule templates
 - **Analytics** — 4 charts with role-specific data
 - **Audit Logs** — Admin-only, filterable, fetched from MongoDB
-- **Settings** — General, Notifications, Integrations, Security, Team
+- **Settings** — General, Notifications, Integrations, Security.
 
----
-
-## Pushing to GitHub
-
-```bash
-git init
-git add .
-git commit -m "Initial commit — HR Workflow Platform"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/hr-workflow-platform.git
-git push -u origin main
-```
-
-Replace `YOUR_USERNAME` with your GitHub username.
